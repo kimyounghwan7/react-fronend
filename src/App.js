@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+//import axios from 'axios'
+
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+
+// custom component
+import UsersList from './user/UsersList';
+import UserRegister from "./user/UserRegister";
+import UserShowDetail from "./user/UserShowDetail";
+
+// 사용자 이미지 등록
+
+// 사용자 이미지 조회
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        <Routes>
+          <Route path='/' Component={UsersList}/>
+          <Route path='/register' Component={UserRegister}/>
+          <Route path='/detail/:id' Component={UserShowDetail}/>
+        </Routes>
+    </BrowserRouter>
   );
 }
 
